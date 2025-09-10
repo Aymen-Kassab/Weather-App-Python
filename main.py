@@ -14,9 +14,9 @@ class MainWindow(QWidget):
         self.text_label = QLabel("Enter city name:", self)
         self.input_label = QLineEdit(self)
         self.search_btn = QPushButton("Search", self)
-        self.res_label = QLabel("35 C", self)
-        self.emote_label = QLabel("🌞", self)
-        self.description_label = QLabel("The weather is sunny", self)
+        self.res_label = QLabel("", self)
+        self.emote_label = QLabel("", self)
+        self.description_label = QLabel("", self)
         self.initUI()
 
     def initUI(self):
@@ -98,7 +98,7 @@ class MainWindow(QWidget):
         new_temp = f"{temp - 273:.1f} °C"
         self.res_label.setText(new_temp)
         self.emote_label.setText(self.display_emote(id))
-        self.description_label.setText(description)
+        self.description_label.setText(description.capitalize())
         self.res_label.setStyleSheet("font-size: 50px;"
                                      "font-weight: bold;")
 
@@ -116,7 +116,7 @@ class MainWindow(QWidget):
         elif id == 800:
             return "🌞"
         elif 801 <= id <= 803:
-            return "☁️"
+            return "⛅"
         else:
             return "🤷‍♂️"
 
